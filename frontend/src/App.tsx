@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { AccessibilityBar } from './components/layout/AccessibilityBar';
 import { Header } from './components/layout/Header';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -19,10 +18,7 @@ import { AboutPage } from './pages/AboutPage';
 export const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-setu-bg text-slate-900 selection:bg-setu-saffron selection:text-white">
-      {/* 1. Fixed Accessibility Bar */}
-      <AccessibilityBar />
-
-      {/* 2. Top Header with Emblem */}
+      {/* 1. Top Header with Emblem */}
       <Header />
 
       {/* 3. Sticky Navigation Bar */}

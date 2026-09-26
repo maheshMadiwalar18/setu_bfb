@@ -8,18 +8,18 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
 
   return (
-    <nav className="bg-[#0B2545] text-white sticky top-[61px] z-40 shadow-sm no-print border-t border-slate-700/40">
+    <nav className="bg-[#0B2545] text-white sticky top-[61px] z-40 shadow-xs no-print">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between">
         {/* Navigation Tabs */}
-        <div className="flex items-center space-x-1 sm:space-x-4 overflow-x-auto py-0 text-xs sm:text-sm font-medium scrollbar-none">
+        <div className="flex items-center space-x-1 sm:space-x-3 overflow-x-auto py-1.5 text-xs sm:text-sm font-medium scrollbar-none">
           <NavLink
             to="/"
             end
             className={({ isActive }) =>
-              `flex items-center space-x-1.5 px-3 py-3 border-b-2 transition-all whitespace-nowrap ${
+              `flex items-center space-x-1.5 px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
                 isActive
-                  ? 'border-[#00875A] text-white font-bold bg-white/5'
-                  : 'border-transparent text-slate-200 hover:text-white hover:border-slate-400'
+                  ? 'bg-white/15 text-white font-bold'
+                  : 'text-slate-200 hover:text-white hover:bg-white/10'
               }`
             }
           >
@@ -30,10 +30,10 @@ export const Navbar: React.FC = () => {
           <NavLink
             to="/schemes"
             className={({ isActive }) =>
-              `flex items-center space-x-1.5 px-3 py-3 border-b-2 transition-all whitespace-nowrap ${
+              `flex items-center space-x-1.5 px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
                 isActive
-                  ? 'border-[#00875A] text-white font-bold bg-white/5'
-                  : 'border-transparent text-slate-200 hover:text-white hover:border-slate-400'
+                  ? 'bg-white/15 text-white font-bold'
+                  : 'text-slate-200 hover:text-white hover:bg-white/10'
               }`
             }
           >
@@ -43,7 +43,7 @@ export const Navbar: React.FC = () => {
 
           <a
             href="/#states"
-            className="flex items-center space-x-1.5 px-3 py-3 border-b-2 border-transparent text-slate-200 hover:text-white hover:border-slate-400 transition-all whitespace-nowrap"
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-slate-200 hover:text-white hover:bg-white/10 transition-all whitespace-nowrap"
           >
             <MapPin className="w-3.5 h-3.5 text-emerald-400" />
             <span>States/UTs</span>
@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
 
           <NavLink
             to="/schemes?type=central"
-            className="flex items-center space-x-1.5 px-3 py-3 border-b-2 border-transparent text-slate-200 hover:text-white hover:border-slate-400 transition-all whitespace-nowrap"
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-slate-200 hover:text-white hover:bg-white/10 transition-all whitespace-nowrap"
           >
             <Building2 className="w-3.5 h-3.5 text-emerald-400" />
             <span>Central Ministries</span>
@@ -60,10 +60,10 @@ export const Navbar: React.FC = () => {
           <NavLink
             to="/find"
             className={({ isActive }) =>
-              `flex items-center space-x-1.5 px-3 py-3 border-b-2 transition-all whitespace-nowrap ${
+              `flex items-center space-x-1.5 px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
                 isActive
-                  ? 'border-[#00875A] text-white font-bold bg-white/5'
-                  : 'border-transparent text-slate-200 hover:text-white hover:border-slate-400'
+                  ? 'bg-white/15 text-white font-bold'
+                  : 'text-slate-200 hover:text-white hover:bg-white/10'
               }`
             }
           >
