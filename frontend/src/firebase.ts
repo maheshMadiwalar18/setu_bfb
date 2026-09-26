@@ -1,20 +1,31 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getAnalytics, isSupported } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBQP006Bnw25IAQND_3DDlEm3hLULOEaA4",
-  authDomain: "curiolab-5c4cf.firebaseapp.com",
-  projectId: "curiolab-5c4cf",
-  storageBucket: "curiolab-5c4cf.firebasestorage.app",
-  messagingSenderId: "382541354229",
-  appId: "1:382541354229:web:21f653e5a4c5d5e320a1bc",
-  measurementId: "G-8VRJH52D8Z"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "",
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || ""
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// Initialize Firebase safely
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+let analytics: any = null;
+if (typeof window !== "undefined") {
+  isSupported().then((supported) => {
+    if (supported && firebaseConfig.measurementId) {
+      analytics = getAnalytics(app);
+    }
+  }).catch(() => {
+    // Ignore analytics init failure in non-browser/restricted environments
+  });
+}
+
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
@@ -22,8 +33,9 @@ export const loginWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
     return result.user;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error signing in with Google:", error);
+    // If popups are blocked or API key is not configured, give a descriptive error
     throw error;
   }
 };
