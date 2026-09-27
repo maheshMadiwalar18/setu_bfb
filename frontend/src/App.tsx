@@ -19,6 +19,7 @@ import { CscPage } from './pages/CscPage';
 import { AboutPage } from './pages/AboutPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { LifeEventPage } from './pages/LifeEventPage';
+import { GovSchemesPage } from './pages/GovSchemesPage';
 
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 
@@ -48,6 +49,7 @@ export const App: React.FC = () => {
             <Route path="/csc" element={<CscPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/life-event" element={<LifeEventPage />} />
+            <Route path="/gov-schemes" element={<GovSchemesPage />} />
           </Routes>
         </ErrorBoundary>
       </main>

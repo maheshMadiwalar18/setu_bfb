@@ -46,3 +46,10 @@ yarn-error.log*
 *.sw?
 .DS_Store
 Thumbs.db
+
+# Database files
+*.db
+
+# IDE/Editor artifacts
+Cursor.lnk
+.kilo/

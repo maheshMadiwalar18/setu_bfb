@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.database import engine, Base, SessionLocal
 from app.seed_data import init_db_data
-from app.routes import schemes, wizard, chat, digilocker, csc, grievance
+from app.routes import schemes, wizard, chat, digilocker, csc, grievance, gov_schemes
 
 # Configure logging
 
@@ -68,6 +68,7 @@ app.include_router(chat.router, prefix=settings.API_V1_STR)
 app.include_router(digilocker.router, prefix=settings.API_V1_STR)
 app.include_router(csc.router, prefix=settings.API_V1_STR)
 app.include_router(grievance.router, prefix=settings.API_V1_STR)
+app.include_router(gov_schemes.router, prefix=settings.API_V1_STR)
 
 @app.get("/")
 def root():

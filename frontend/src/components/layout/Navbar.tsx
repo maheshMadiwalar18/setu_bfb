@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Layers, MapPin, Building2, Compass, Sparkles, Home } from 'lucide-react';
+import { Layers, MapPin, Building2, Compass, Sparkles, Home, Globe } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { t } = useTranslation();
@@ -81,6 +81,20 @@ export const Navbar: React.FC = () => {
           >
             <Compass className="w-3.5 h-3.5 text-amber-400" />
             <span>{t('nav.findScheme', 'Find Schemes for You')}</span>
+          </NavLink>
+
+          <NavLink
+            to="/gov-schemes"
+            className={({ isActive }) =>
+              `flex items-center space-x-1.5 px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
+                isActive
+                  ? 'bg-white/15 text-white font-bold ring-1 ring-setu-saffron/40'
+                  : 'text-slate-200 hover:text-white hover:bg-white/10'
+              }`
+            }
+          >
+            <Globe className="w-3.5 h-3.5 text-setu-saffron" />
+            <span>Gov Directory</span>
           </NavLink>
         </div>
 

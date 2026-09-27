@@ -69,7 +69,7 @@ async def chat_stream(
                     messages=messages,
                     tools=OPENAI_TOOLS,
                     tool_choice="auto",
-                    max_tokens=1024,
+                    max_tokens=500,
                 )
 
                 message_obj = response.choices[0].message
@@ -110,7 +110,7 @@ async def chat_stream(
                     followup = await client.chat.completions.create(
                         model=model_name,
                         messages=messages,
-                        max_tokens=1024,
+                        max_tokens=500,
                     )
 
                     followup_text = followup.choices[0].message.content or ""
