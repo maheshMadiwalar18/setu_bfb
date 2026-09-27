@@ -18,6 +18,9 @@ import { DigiLockerCallback } from './pages/DigiLockerCallback';
 import { CscPage } from './pages/CscPage';
 import { AboutPage } from './pages/AboutPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { LifeEventPage } from './pages/LifeEventPage';
+
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 
 export const App: React.FC = () => {
   return (
@@ -30,20 +33,23 @@ export const App: React.FC = () => {
 
       {/* 3. Main Content Area */}
       <main id="main-content" className="flex-1 pb-16 md:pb-0">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/find" element={<WizardPage />} />
-          <Route path="/categories" element={<CategoriesPage />} />
-          <Route path="/states" element={<StatesPage />} />
-          <Route path="/ministries" element={<MinistriesPage />} />
-          <Route path="/schemes" element={<SchemesPage />} />
-          <Route path="/schemes/:id" element={<SchemeDetailPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/chat" element={<ChatPage />} />
-          <Route path="/digilocker/callback" element={<DigiLockerCallback />} />
-          <Route path="/csc" element={<CscPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/find" element={<WizardPage />} />
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/states" element={<StatesPage />} />
+            <Route path="/ministries" element={<MinistriesPage />} />
+            <Route path="/schemes" element={<SchemesPage />} />
+            <Route path="/schemes/:id" element={<SchemeDetailPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="/digilocker/callback" element={<DigiLockerCallback />} />
+            <Route path="/csc" element={<CscPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/life-event" element={<LifeEventPage />} />
+          </Routes>
+        </ErrorBoundary>
       </main>
 
       {/* 4. Official Government Footer */}

@@ -39,7 +39,27 @@ def get_schemes(
 
     # Category filter
     if category and category.lower() != "all":
-        query = query.filter(Scheme.category.ilike(category))
+        cat_lower = category.lower()
+        category_map = {
+            "agriculture": ["agriculture", "environment"],
+            "education": ["education"],
+            "health": ["health"],
+            "banking": ["banking", "entrepreneurship", "finance"],
+            "social": ["social", "senior_citizens", "minority"],
+            "housing": ["housing"],
+            "women": ["women"],
+            "employment": ["employment", "entrepreneurship"],
+            "disability": ["disability"],
+            "it-science": ["it-science", "education"],
+            "sports": ["sports", "education"],
+            "law-justice": ["law-justice", "social"],
+            "environment": ["environment", "agriculture"],
+            "senior_citizens": ["senior_citizens", "social"],
+            "entrepreneurship": ["entrepreneurship", "banking", "employment"],
+        }
+        mapped_cats = category_map.get(cat_lower, [cat_lower])
+        conds = [Scheme.category.ilike(f"%{c}%") for c in mapped_cats]
+        query = query.filter(or_(*conds))
 
     # State filter
     if state and state.lower() not in ["all", "all india"]:

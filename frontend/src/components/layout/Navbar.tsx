@@ -84,8 +84,9 @@ export const Navbar: React.FC = () => {
           </NavLink>
         </div>
 
-        {/* Right side AI Assistant Button */}
+        {/* Right side AI Assistant & Analyzer Buttons */}
         <div className="py-1.5 flex items-center space-x-2">
+
           <NavLink
             to="/chat"
             className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full font-bold text-xs transition-all shadow-xs ${

@@ -97,6 +97,18 @@ ANTHROPIC_TOOLS = [
     }
 ]
 
+OPENAI_TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": tool["name"],
+            "description": tool["description"],
+            "parameters": tool["input_schema"]
+        }
+    }
+    for tool in ANTHROPIC_TOOLS
+]
+
 def execute_tool(tool_name: str, tool_input: Dict[str, Any], db: Session) -> Dict[str, Any]:
     """Execute tools against database and business logic."""
     if tool_name == "search_schemes":

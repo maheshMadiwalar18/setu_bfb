@@ -964,6 +964,662 @@ SEED_SCHEMES = [
         ],
         "last_updated": "24 Sep 2025",
         "view_count": 13200
+    },
+    {
+        "id": "pm-jandhan",
+        "code": "GOI/MoF/2024/0201",
+        "name": "PM Jan-Dhan Yojana (PMJDY)",
+        "name_native": "प्रधानमंत्री जन-धन योजना",
+        "category": "banking",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Finance",
+        "summary": "National mission for financial inclusion providing zero balance bank account, RuPay debit card, and Rs 2 Lakh accidental insurance cover.",
+        "description": "Pradhan Mantri Jan-Dhan Yojana ensures access to financial services including banking, savings, deposit accounts, remittance, credit, insurance, and pension in an affordable manner for unbanked citizens.",
+        "benefit_amount": "Zero Balance Account + Rs 2 Lakh Accident Cover + Rs 10,000 Overdraft",
+        "benefit_type": "Cash",
+        "application_mode": "Offline",
+        "status": "Open",
+        "deadline": "Ongoing",
+        "apply_url": "https://pmjdy.gov.in",
+        "min_age": 10,
+        "max_age": 99,
+        "gender_allowed": "any",
+        "income_ceiling": 10000000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Indian citizen without any existing bank account",
+            "Minors above 10 years can open self-operated accounts"
+        ],
+        "highlights": [
+            "No minimum balance required",
+            "Free RuPay debit card with Rs 2,00,000 accidental insurance",
+            "Rs 10,000 overdraft facility for eligible account holders"
+        ],
+        "benefits_breakdown": [
+            "Direct Benefit Transfer (DBT) of all government schemes",
+            "Interest earned on savings deposit",
+            "Rs 2 Lakh accidental death / disability coverage"
+        ],
+        "documents_required": [
+            "Aadhaar Card OR Passport / Voter ID / Driving License",
+            "Passport size photographs",
+            "Mobile number"
+        ],
+        "application_steps": [
+            "Visit nearest bank branch or Bank Mitra / CSC kiosk",
+            "Fill in PMJDY account opening form",
+            "Authenticate using Aadhaar biometric authentication",
+            "Receive instant RuPay Debit Card and Passbook"
+        ],
+        "faqs": [
+            {"q": "Is minimum balance compulsory?", "a": "No, PMJDY accounts are zero-balance savings accounts with no penalty charges."}
+        ],
+        "last_updated": "20 Sep 2025",
+        "view_count": 15400
+    },
+    {
+        "id": "pm-jjby",
+        "code": "GOI/MoF/2024/0202",
+        "name": "PM Jeevan Jyoti Bima Yojana (PMJJBY)",
+        "name_native": "प्रधानमंत्री जीवन ज्योति बीमा योजना",
+        "category": "banking",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Finance",
+        "summary": "Life insurance coverage of Rs 2,00,000 for death due to any cause at an affordable premium of Rs 436 per annum.",
+        "description": "PMJJBY is a renewable one-year term life insurance scheme providing life cover to citizens aged 18 to 50 years holding a bank account.",
+        "benefit_amount": "Rs 2,00,000 Life Insurance Cover",
+        "benefit_type": "Insurance",
+        "application_mode": "Both",
+        "status": "Open",
+        "deadline": "Ongoing",
+        "apply_url": "https://jansuraksha.gov.in",
+        "min_age": 18,
+        "max_age": 50,
+        "gender_allowed": "any",
+        "income_ceiling": 10000000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Bank account holder aged between 18 and 50 years",
+            "Consent for auto-debit of Rs 436 annual premium"
+        ],
+        "highlights": [
+            "Rs 2 Lakh life cover payable to nominee on death due to any reason",
+            "Annual premium auto-debited in single installment every May",
+            "Simple enrollment through SMS or internet banking"
+        ],
+        "benefits_breakdown": [
+            "Rs 2,00,000 lump sum claim amount to family nominee"
+        ],
+        "documents_required": [
+            "Aadhaar Card",
+            "Bank Passbook",
+            "Nominee details"
+        ],
+        "application_steps": [
+            "Log in to net banking or visit bank branch / CSC",
+            "Select PMJJBY auto-debit consent",
+            "Submit nominee name and Aadhaar details"
+        ],
+        "faqs": [
+            {"q": "What is the annual premium?", "a": "Rs 436 per year, auto-debited automatically from your bank account."}
+        ],
+        "last_updated": "18 Sep 2025",
+        "view_count": 9800
+    },
+    {
+        "id": "nsap-pension",
+        "code": "GOI/MoRD/2024/0203",
+        "name": "National Social Assistance Programme (NSAP)",
+        "name_native": "राष्ट्रीय सामाजिक सहायता कार्यक्रम",
+        "category": "social",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Rural Development",
+        "summary": "Monthly pension for senior citizens, widows, and persons with severe disabilities living below the poverty line.",
+        "description": "NSAP fulfills the Constitutional directive of providing social security to destitute elderly citizens, widows, and severely disabled persons.",
+        "benefit_amount": "Rs 1,000 - 3,000 / month pension",
+        "benefit_type": "Cash",
+        "application_mode": "Both",
+        "status": "Open",
+        "deadline": "Ongoing",
+        "apply_url": "https://nsap.nic.in",
+        "min_age": 60,
+        "max_age": 99,
+        "gender_allowed": "any",
+        "income_ceiling": 150000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": True,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "BPL household senior citizen aged 60+ (IGNOAPS), widow aged 40+ (IGNWPS), or severe PwD (IGNDPS)"
+        ],
+        "highlights": [
+            "Direct monthly benefit transfer into Aadhaar-seeded bank account",
+            "Combined central and state top-up contribution"
+        ],
+        "benefits_breakdown": [
+            "Senior Citizen Pension (60-79 yrs): Rs 1,000 - 2,000 / month",
+            "Senior Citizen Pension (80+ yrs): Rs 2,500 - 3,000 / month"
+        ],
+        "documents_required": [
+            "Aadhaar Card",
+            "BPL Ration Card / Income Certificate",
+            "Bank Passbook",
+            "Age proof document"
+        ],
+        "application_steps": [
+            "Apply via Gram Panchayat / Municipal Office or NSAP portal",
+            "Submit BPL card and Aadhaar for verification",
+            "Receive monthly direct pension transfer"
+        ],
+        "faqs": [
+            {"q": "Is BPL card compulsory?", "a": "Yes, applicant must belong to a BPL family listed in rural/urban survey."}
+        ],
+        "last_updated": "15 Sep 2025",
+        "view_count": 12100
+    },
+    {
+        "id": "pm-daksh",
+        "code": "GOI/MoSJE/2024/0204",
+        "name": "PM-DAKSH Skill Development Scheme",
+        "name_native": "पीएम दक्ष कौशल विकास योजना",
+        "category": "social",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Social Justice and Empowerment",
+        "summary": "Free skill training with monthly stipend of Rs 1,000 to Rs 3,000 for SC, OBC, EBC, DNT, and Sanitation Workers.",
+        "description": "PM-DAKSH provides short term upskilling, reskilling, and entrepreneurial training to youth belonging to marginalized communities to enhance their wage and self-employment opportunities.",
+        "benefit_amount": "Free Skill Course + Rs 1,000 - 3,000 Monthly Stipend + Free Kit",
+        "benefit_type": "Scholarship",
+        "application_mode": "Online",
+        "status": "Open",
+        "deadline": "31 Dec 2025",
+        "apply_url": "https://pmdaksh.dosje.gov.in",
+        "min_age": 18,
+        "max_age": 45,
+        "gender_allowed": "any",
+        "income_ceiling": 300000.0,
+        "caste_eligibility": ["sc", "obc"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "SC, OBC, EBC, DNT youth or sanitation worker",
+            "Annual family income less than Rs 3 Lakh for OBC and Rs 1 Lakh for EBC"
+        ],
+        "highlights": [
+            "100% free government certified vocational training",
+            "Monthly stipend for candidates with 80%+ attendance",
+            "Placement assistance provided in private and government sectors"
+        ],
+        "benefits_breakdown": [
+            "Stipend of Rs 1,000/month for upskilling/reskilling",
+            "Stipend of Rs 1,500/month for short term training",
+            "Stipend of Rs 3,000/month for apprentice training"
+        ],
+        "documents_required": [
+            "Aadhaar Card",
+            "Caste & Income Certificate",
+            "Educational Qualification Certificate",
+            "Bank Account details"
+        ],
+        "application_steps": [
+            "Register on pmdaksh.dosje.gov.in portal",
+            "Choose preferred skill sector and nearest training institute",
+            "Complete batch enrollment and attend classes"
+        ],
+        "faqs": [
+            {"q": "Is training completely free?", "a": "Yes, 100% free with study materials and stipend."}
+        ],
+        "last_updated": "22 Sep 2025",
+        "view_count": 7600
+    },
+    {
+        "id": "pm-kusum",
+        "code": "GOI/MNRE/2024/0205",
+        "name": "PM-KUSUM Solar Pump Scheme",
+        "name_native": "पीएम कुसुम सोलर पंप योजना",
+        "category": "agriculture",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of New and Renewable Energy",
+        "summary": "Up to 60% central and state capital subsidy for installing standalone off-grid solar agriculture pumps for farmers.",
+        "description": "PM-KUSUM scheme aims to de-dieselize the farm sector by enabling farmers to install standalone solar agriculture pumps and solarize existing grid-connected pumps.",
+        "benefit_amount": "Up to 60% Subsidy on Solar Agriculture Pumps",
+        "benefit_type": "Subsidy",
+        "application_mode": "Online",
+        "status": "Open",
+        "deadline": "31 Dec 2026",
+        "apply_url": "https://pmkusum.mnre.gov.in",
+        "min_age": 18,
+        "max_age": 99,
+        "gender_allowed": "any",
+        "income_ceiling": 10000000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": True,
+        "additional_eligibility": [
+            "Individual farmer, water user association, or farm producer organization (FPO)",
+            "Agricultural land with borewell/openwell source"
+        ],
+        "highlights": [
+            "30% Central Subsidy + 30% State Subsidy (Farmer pays only 10-40%)",
+            "5 to 7.5 HP solar water pump installation",
+            "Earn extra income by selling surplus power back to the grid"
+        ],
+        "benefits_breakdown": [
+            "Financial subsidy up to Rs 1,50,000 on 7.5 HP solar pump",
+            "Zero electricity bill for irrigation"
+        ],
+        "documents_required": [
+            "Aadhaar Card",
+            "Land ownership Patta / RTC",
+            "Bank Passbook",
+            "Mobile number"
+        ],
+        "application_steps": [
+            "Apply via State Renewable Energy Agency portal (e.g. KREDL / MEDA / UPNEDA)",
+            "Select solar pump capacity and vendor",
+            "Pay farmer contribution share (10%)",
+            "Receive site verification and pump installation"
+        ],
+        "faqs": [
+            {"q": "What is the farmer share?", "a": "Farmer only pays 10% to 40% of the total cost; remaining 60-90% is covered by subsidies and bank loans."}
+        ],
+        "last_updated": "21 Sep 2025",
+        "view_count": 11200
+    },
+    {
+        "id": "jan-aushadhi",
+        "code": "GOI/MoCF/2024/0206",
+        "name": "PM Bhartiya Jan Aushadhi Pariyojana",
+        "name_native": "प्रधानमंत्री भारतीय जन औषधि परियोजना",
+        "category": "health",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Department of Pharmaceuticals, Ministry of Chemicals & Fertilizers",
+        "summary": "High quality generic medicines, surgical items, and health products available at 50% to 90% lower prices across 10,000+ Jan Aushadhi Kendras.",
+        "description": "PMBJAP makes quality generic medicines accessible to all citizens at affordable prices, reducing out-of-pocket healthcare expenses significantly.",
+        "benefit_amount": "50% to 90% discount on 2,000+ medicines and surgicals",
+        "benefit_type": "Subsidy",
+        "application_mode": "Offline",
+        "status": "Open",
+        "deadline": "Ongoing",
+        "apply_url": "https://janaushadhi.gov.in",
+        "min_age": 0,
+        "max_age": 99,
+        "gender_allowed": "any",
+        "income_ceiling": 10000000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Open to all citizens without any income or documentation barrier"
+        ],
+        "highlights": [
+            "Over 2,000 quality WHO-GMP certified generic medicines",
+            "300+ surgical equipment and medical consumables",
+            "Oxo-biodegradable Sanitary Napkins (Suvidha) at Rs 1 per pad"
+        ],
+        "benefits_breakdown": [
+            "50-90% savings compared to branded market medicines",
+            "Available across 10,000+ kendras nationwide"
+        ],
+        "documents_required": [
+            "Valid Doctor Prescription (optional for OTC items)"
+        ],
+        "application_steps": [
+            "Locate nearest Jan Aushadhi Kendra using Jan Aushadhi Sugam Mobile App",
+            "Present prescription and purchase WHO-GMP tested generic medicines"
+        ],
+        "faqs": [
+            {"q": "Are generic medicines as effective as branded ones?", "a": "Yes, all Jan Aushadhi medicines undergo strict NABL lab quality tests and meet standard pharmacopoeia norms."}
+        ],
+        "last_updated": "19 Sep 2025",
+        "view_count": 8300
+    },
+    {
+        "id": "pmgdisha",
+        "code": "GOI/MeitY/2024/0207",
+        "name": "PMGDISHA Digital Literacy Scheme",
+        "name_native": "प्रधानमंत्री ग्रामीण डिजिटल साक्षरता अभियान",
+        "category": "it-science",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Electronics and Information Technology (MeitY)",
+        "summary": "Free 20-hour digital literacy training for rural citizens to learn computer skills, smartphones, UPI digital payments, and e-governance.",
+        "description": "Pradhan Mantri Gramin Digital Saksharta Abhiyan (PMGDISHA) empowers 6 crore rural households by imparting digital literacy skills.",
+        "benefit_amount": "Free 20-Hour Digital Literacy Course + Government Certificate",
+        "benefit_type": "Scholarship",
+        "application_mode": "Both",
+        "status": "Open",
+        "deadline": "31 Dec 2025",
+        "apply_url": "https://www.pmgdisha.in",
+        "min_age": 14,
+        "max_age": 60,
+        "gender_allowed": "any",
+        "income_ceiling": 500000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Digitally illiterate person in a rural household aged between 14 and 60 years",
+            "Only one person per eligible rural family"
+        ],
+        "highlights": [
+            "Hands-on training in operating computers, tablets, and smartphones",
+            "Learning BHIM UPI, net banking, email, and online government services",
+            "Official MeitY Govt Certificate upon passing proctored test"
+        ],
+        "benefits_breakdown": [
+            "Free 20-hour training course",
+            "Govt certified digital badge and physical certificate"
+        ],
+        "documents_required": [
+            "Aadhaar Card",
+            "Active Mobile Number"
+        ],
+        "application_steps": [
+            "Visit nearest CSC (Common Service Centre) training center",
+            "Provide Aadhaar for biometrics registration",
+            "Complete 20 hours of training module and appear for online exam"
+        ],
+        "faqs": [
+            {"q": "Is there any fee for training or certificate?", "a": "No, PMGDISHA is 100% free of cost funded by Government of India."}
+        ],
+        "last_updated": "24 Sep 2025",
+        "view_count": 9100
+    },
+    {
+        "id": "inspire-scholarship",
+        "code": "GOI/DST/2024/0208",
+        "name": "INSPIRE Scholarship for Higher Education (SHE)",
+        "name_native": "इंस्पायर उच्च शिक्षा छात्रवृत्ति योजना",
+        "category": "it-science",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Department of Science and Technology (DST)",
+        "summary": "Prestigious scholarship of Rs 80,000 per year for top 1% Class 12 science graduates pursuing Natural and Basic Sciences (B.Sc / M.Sc).",
+        "description": "Innovation in Science Pursuit for Inspired Research (INSPIRE) SHE scheme attracts talent to study natural and basic sciences at university degree level.",
+        "benefit_amount": "Rs 80,000 / year (Rs 60,000 cash + Rs 20,000 mentorship grant)",
+        "benefit_type": "Scholarship",
+        "application_mode": "Online",
+        "status": "Open",
+        "deadline": "31 Dec 2025",
+        "apply_url": "https://online-inspire.gov.in",
+        "min_age": 17,
+        "max_age": 22,
+        "gender_allowed": "any",
+        "income_ceiling": 10000000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": True,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Top 1% aggregate percentile in Class 12 board examination (Science stream)",
+            "Pursuing B.Sc., B.S., or 5-year Integrated M.Sc. in Natural & Basic Sciences"
+        ],
+        "highlights": [
+            "Rs 60,000 direct annual scholarship stipend",
+            "Rs 20,000 annual summer research project mentorship grant",
+            "Direct mentorship by national academy scientists"
+        ],
+        "benefits_breakdown": [
+            "Total Rs 4,00,000 support over 5 years (B.Sc + M.Sc)"
+        ],
+        "documents_required": [
+            "Class 12 Marksheet & Board Cut-off Advisory Letter",
+            "Aadhaar Card",
+            "College Admission Verification Certificate",
+            "Bank Account Passbook"
+        ],
+        "application_steps": [
+            "Register on online-inspire.gov.in portal",
+            "Upload Class 12 marksheet and college admission proof",
+            "Submit online application before DST deadline"
+        ],
+        "faqs": [
+            {"q": "What subjects are covered?", "a": "Physics, Chemistry, Mathematics, Biology, Statistics, Geology, Astrophysics, Botany, Zoology."}
+        ],
+        "last_updated": "23 Sep 2025",
+        "view_count": 14100
+    },
+    {
+        "id": "khelo-india",
+        "code": "GOI/MYAS/2024/0209",
+        "name": "Khelo India Youth & Talent Development Scheme",
+        "name_native": "खेलो इंडिया युवा खेल विकास योजना",
+        "category": "sports",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Youth Affairs and Sports",
+        "summary": "Financial stipend of Rs 5 Lakh per year for 8 consecutive years awarded to 1,000 talented young athletes across India.",
+        "description": "Khelo India aims to revive sports culture in India at the grass-root level by identifying young athletic talent and supporting their long-term training.",
+        "benefit_amount": "Rs 5,00,000 / year for 8 years + World-Class Coaching",
+        "benefit_type": "Scholarship",
+        "application_mode": "Both",
+        "status": "Open",
+        "deadline": "Ongoing",
+        "apply_url": "https://kheloindia.gov.in",
+        "min_age": 10,
+        "max_age": 21,
+        "gender_allowed": "any",
+        "income_ceiling": 10000000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Selected through Khelo India Youth Games / School Games talent identification drive",
+            "Age group U-17 and U-21"
+        ],
+        "highlights": [
+            "Rs 5 Lakh per annum financial support for 8 years",
+            "Covers diet, equipment, international training, and sports science",
+            "Free admission to National Sports Academies and SAI Centers"
+        ],
+        "benefits_breakdown": [
+            "Rs 1.2 Lakh out-of-pocket allowance",
+            "Rs 3.8 Lakh academy training, lodging, and tournament travel"
+        ],
+        "documents_required": [
+            "Aadhaar Card",
+            "Birth Certificate",
+            "National / State Sports Achievement Certificates"
+        ],
+        "application_steps": [
+            "Register on Khelo India Athlete Portal (kheloindia.gov.in)",
+            "Participate in District / State talent identification trials",
+            "Get empaneled under Khelo India Academy scholarship"
+        ],
+        "faqs": [
+            {"q": "How many athletes are selected every year?", "a": "1,000 top talented athletes are selected annually across sports disciplines."}
+        ],
+        "last_updated": "20 Sep 2025",
+        "view_count": 10500
+    },
+    {
+        "id": "tele-law",
+        "code": "GOI/MoLJ/2024/0210",
+        "name": "Tele-Law Portal (NALSA Legal Aid via CSC)",
+        "name_native": "टेली-लॉ सेवा (सीएससी मुफ्त कानूनी सलाह)",
+        "category": "law-justice",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Law & Justice & NALSA",
+        "summary": "Free pre-litigation legal advice and video/voice consultation with panel lawyers via Common Service Centres (CSCs) for marginalized citizens.",
+        "description": "Tele-Law connects vulnerable citizens in rural areas with Panel Lawyers through video conferencing and telephone facilities available at CSCs.",
+        "benefit_amount": "Free Lawyer Consultation + Legal Drafting Support",
+        "benefit_type": "Subsidy",
+        "application_mode": "Both",
+        "status": "Open",
+        "deadline": "Ongoing",
+        "apply_url": "https://www.tele-law.in",
+        "min_age": 18,
+        "max_age": 99,
+        "gender_allowed": "any",
+        "income_ceiling": 300000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Free for Women, Children, SC/ST, PwD, Disaster victims, and Low-income citizens (income < Rs 3L)"
+        ],
+        "highlights": [
+            "Instant video call consultation with high court / district panel advocates",
+            "Covers land disputes, marital issues, consumer cases, labor rights, and criminal grievances",
+            "Free case registration at 2.5 Lakh CSC VLE centers"
+        ],
+        "benefits_breakdown": [
+            "Zero advice fee for eligible categories",
+            "Free document drafting support"
+        ],
+        "documents_required": [
+            "Aadhaar Card",
+            "Category Proof (Caste/Income/Disability) if applicable"
+        ],
+        "application_steps": [
+            "Visit nearest CSC center or download Tele-Law Citizen App",
+            "Describe legal issue to VLE operator",
+            "Connect with Panel Lawyer via video call and receive legal advice"
+        ],
+        "faqs": [
+            {"q": "Is advice confidential?", "a": "Yes, all consultations between lawyer and citizen are strictly confidential and privileged."}
+        ],
+        "last_updated": "25 Sep 2025",
+        "view_count": 6200
+    },
+    {
+        "id": "pmkvy",
+        "code": "GOI/MSDE/2024/0211",
+        "name": "PM Kaushal Vikas Yojana 4.0 (PMKVY)",
+        "name_native": "प्रधानमंत्री कौशल विकास योजना 4.0",
+        "category": "employment",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Skill Development and Entrepreneurship",
+        "summary": "Free industry-aligned short term skill training, Industry 4.0 courses (AI, Robotics, Drones), and NSDC certification with job placement.",
+        "description": "PMKVY 4.0 empowers youth by providing industry-relevant skill training in emerging technology and manufacturing sectors.",
+        "benefit_amount": "Free Skill Training + NSDC Certification + Placement Support",
+        "benefit_type": "Scholarship",
+        "application_mode": "Both",
+        "status": "Open",
+        "deadline": "31 Dec 2025",
+        "apply_url": "https://www.pmkvyofficial.org",
+        "min_age": 15,
+        "max_age": 45,
+        "gender_allowed": "any",
+        "income_ceiling": 10000000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Indian school/college dropout or unemployed youth aged 15 to 45 years"
+        ],
+        "highlights": [
+            "100% government funded training",
+            "On-the-job training (OJT) and industry apprenticeship",
+            "NSDC certified digital skill credential"
+        ],
+        "benefits_breakdown": [
+            "Free short-term course (200-400 hours)",
+            "Assessment and certification fee fully waived"
+        ],
+        "documents_required": [
+            "Aadhaar Card",
+            "Educational Qualification Certificate",
+            "Bank Account details"
+        ],
+        "application_steps": [
+            "Register on Skill India Digital portal (skillindiadigital.gov.in)",
+            "Enroll in nearest Pradhan Mantri Kaushal Kendra (PMKK)",
+            "Complete course and assessment to get certified"
+        ],
+        "faqs": [
+            {"q": "Are drone pilot and AI courses available?", "a": "Yes, PMKVY 4.0 includes Drone Pilot Training, AI, 3D Printing, and IoT."}
+        ],
+        "last_updated": "22 Sep 2025",
+        "view_count": 16800
+    },
+    {
+        "id": "pmay-u",
+        "code": "GOI/MoHUA/2024/0212",
+        "name": "PM Awas Yojana - Urban 2.0 (PMAY-U)",
+        "name_native": "प्रधानमंत्री आवास योजना - शहरी 2.0",
+        "category": "housing",
+        "scheme_type": "Central",
+        "state": "All India",
+        "ministry": "Ministry of Housing and Urban Affairs",
+        "summary": "Interest subvention subsidy of Rs 1.80 Lakh to Rs 2.67 Lakh on home loans for EWS and LIG urban families.",
+        "description": "Pradhan Mantri Awas Yojana - Urban 2.0 provides interest subsidy and central assistance to urban poor and middle class families to construct or purchase a pucca home.",
+        "benefit_amount": "Up to Rs 2,67,000 Credit Linked Interest Subsidy",
+        "benefit_type": "Housing",
+        "application_mode": "Online",
+        "status": "Open",
+        "deadline": "31 Dec 2026",
+        "apply_url": "https://pmay-urban.gov.in",
+        "min_age": 18,
+        "max_age": 70,
+        "gender_allowed": "any",
+        "income_ceiling": 900000.0,
+        "caste_eligibility": ["general", "obc", "sc", "st"],
+        "bpl_required": False,
+        "disability_required": False,
+        "student_only": False,
+        "farmer_only": False,
+        "additional_eligibility": [
+            "Urban family that does not own a pucca house anywhere in India",
+            "Annual family income up to Rs 3 Lakh (EWS) or Rs 6 Lakh (LIG)"
+        ],
+        "highlights": [
+            "Interest subsidy up to 6.5% on housing loans up to Rs 6 Lakh",
+            "Direct subsidy credited upfront to home loan account reducing EMI",
+            "Female ownership / co-ownership mandatory for EWS/LIG houses"
+        ],
+        "benefits_breakdown": [
+            "Subsidy amount up to Rs 2,67,000 credited directly to home loan principal"
+        ],
+        "documents_required": [
+            "Aadhaar Card of all family members",
+            "Income Certificate / ITR / Salary slip",
+            "Approved construction plan / Home loan sanction letter",
+            "Self-declaration patta of no pucca house"
+        ],
+        "application_steps": [
+            "Apply online through PMAY-U portal or bank housing loan counter",
+            "Submit Aadhaar, urban domicile, and income details",
+            "Track Application status and receive CLSS subsidy in loan account"
+        ],
+        "faqs": [
+            {"q": "How is subsidy paid?", "a": "Subsidy is credited upfront to the loan account of beneficiary by National Housing Bank (NHB), reducing monthly EMI."}
+        ],
+        "last_updated": "24 Sep 2025",
+        "view_count": 13900
     }
 ]
 
@@ -978,3 +1634,4 @@ def init_db_data(db):
             for k, v in data.items():
                 setattr(existing, k, v)
     db.commit()
+

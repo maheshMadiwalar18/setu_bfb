@@ -54,8 +54,7 @@ export const HomePage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Video modal state
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
+
 
   // FAQ Accordion State
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
@@ -654,6 +653,47 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* 2.5 SECTION: EXPLORE BY LIFE EVENTS */}
+      <section className="max-w-7xl mx-auto px-4 lg:px-8 py-6">
+        <div className="text-center space-y-1 mb-8">
+          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest block">
+            Life Event Assistant
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Explore by Life Events
+          </h2>
+          <p className="text-sm text-slate-500 max-w-2xl mx-auto">Don't know scheme names? No problem. Just tell us your life situation and we will guide you.</p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {[
+            { title: 'Going to College', icon: GraduationCap, color: 'text-indigo-600', bg: 'bg-indigo-50', hover: 'hover:border-indigo-200' },
+            { title: 'Starting a Business', icon: Briefcase, color: 'text-amber-600', bg: 'bg-amber-50', hover: 'hover:border-amber-200' },
+            { title: 'Having a Child', icon: HeartPulse, color: 'text-rose-600', bg: 'bg-rose-50', hover: 'hover:border-rose-200' },
+            { title: 'Marriage', icon: Users, color: 'text-pink-600', bg: 'bg-pink-50', hover: 'hover:border-pink-200' },
+            { title: 'Building a House', icon: Home, color: 'text-emerald-600', bg: 'bg-emerald-50', hover: 'hover:border-emerald-200' },
+            { title: 'Retirement', icon: UserCheck, color: 'text-teal-600', bg: 'bg-teal-50', hover: 'hover:border-teal-200' },
+            { title: 'Becoming a Farmer', icon: Sprout, color: 'text-green-600', bg: 'bg-green-50', hover: 'hover:border-green-200' },
+            { title: 'Looking for a Job', icon: Search, color: 'text-blue-600', bg: 'bg-blue-50', hover: 'hover:border-blue-200' },
+          ].map((event, idx) => (
+            <div
+              key={idx}
+              onClick={() => navigate(`/life-event?event=${encodeURIComponent(event.title)}`)}
+              className={`bg-white rounded-xl border border-slate-200 p-3 py-4 shadow-xs ${event.hover} hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer group flex flex-col items-center text-center justify-between`}
+            >
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${event.bg} group-hover:scale-110 transition-transform`}>
+                <event.icon className={`w-5 h-5 ${event.color}`} />
+              </div>
+              <div>
+                <h4 className="font-bold text-xs text-slate-800 transition-colors">
+                  {event.title}
+                </h4>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* 3. SECTION: EASY STEPS TO APPLY FOR GOVERNMENT SCHEMES */}
       <section className="max-w-7xl mx-auto px-4 lg:px-8 py-6">
         <div className="text-center space-y-1 mb-8">
@@ -743,8 +783,7 @@ export const HomePage: React.FC = () => {
           {/* Right Video / Media Card */}
           <div className="lg:col-span-5">
             <div 
-              onClick={() => setVideoModalOpen(true)}
-              className="relative rounded-xl overflow-hidden shadow-md border border-slate-200 cursor-pointer group bg-slate-900 aspect-video flex items-center justify-center"
+              className="relative rounded-xl overflow-hidden shadow-md border border-slate-200 group bg-slate-900 aspect-video flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-emerald-950/80 via-slate-900/60 to-transparent z-10" />
               
@@ -756,10 +795,6 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Play Button Icon */}
-              <div className="relative z-20 w-14 h-14 rounded-full bg-[#00875A] group-hover:bg-[#00704A] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <Play className="w-6 h-6 fill-white ml-0.5" />
-              </div>
             </div>
           </div>
         </div>
@@ -868,31 +903,6 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Video Modal */}
-      {videoModalOpen && (
-        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-4 space-y-3 relative shadow-2xl animate-fade-in">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-              <h4 className="font-bold text-sm text-slate-900">About SETU National Platform</h4>
-              <button
-                onClick={() => setVideoModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-800"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="aspect-video bg-slate-900 rounded-lg flex items-center justify-center text-white">
-              <iframe
-                className="w-full h-full rounded-lg"
-                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="SETU Official Overview Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

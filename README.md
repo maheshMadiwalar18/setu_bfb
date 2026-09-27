@@ -66,14 +66,13 @@ npm run dev
 1. **Voice Search from Home**: Click mic on home page -> speak requirement (e.g. *"scholarship for my daughter in college"*) -> auto-fills & redirects to `/chat` with AI scheme recommendations.
 2. **Eligibility Wizard**: Fill 35-yr female in Karnataka with Rs 1.8L income -> Gruha Lakshmi matches with 98% score -> click *"Check Eligibility"* for green checkmark breakdown.
 3. **Payment Status & DigiLocker**: Ask in chat *"Did I get my Gruha Lakshmi money this month?"* -> triggers DigiLocker permission card -> click *"Connect DigiLocker"* -> instant verified DBT credit response (Rs 2,000 to A/C ending 7834 on 15 Nov 2024).
-4. **Multilingual Switch**: Switch to ಕನ್ನಡ (Kannada) or हिन्दी (Hindi) -> UI translates and AI responds fluently in native script.
-5. **CSC Operator Assist**: Log in with `operator@csc.gov.in` / `demo123` -> fill walk-in citizen form -> generate and print formatted summary report.
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
-- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, Lucide Icons, `react-i18next` (12 Indian languages), Web Speech API.
-- **Backend**: FastAPI, SQLAlchemy (SQLite zero-config out of the box + PostgreSQL compatible), Redis caching layer with in-memory fallback, SSE streaming.
-- **AI Intelligence**: Anthropic Claude (`claude-sonnet-4-6`) tool-calling coordinator with a deterministic multilingual engine fallback ensuring 100% reliable execution.
-- **Compliance**: Guidelines for Indian Government Websites (GIGW) & WCAG 2.0 AA.
+- **Frontend**: Next.js / Vite React 18, TypeScript, Tailwind CSS, Lucide Icons, `react-i18next`.
+- **Backend**: FastAPI (Python), SQLAlchemy (SQLite zero-config out of the box + PostgreSQL compatible), Redis caching layer with in-memory fallback, SSE streaming.
+- **AI Intelligence**: OpenAI GPT-4o / Anthropic Claude tool-calling gateway with deterministic synthesis engine fallback ensuring 100% operational uptime.
+- **Compliance & Standards**: GIGW & WCAG 2.0 AA standard compliance.
+

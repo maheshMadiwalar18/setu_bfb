@@ -4,17 +4,20 @@ from typing import AsyncGenerator, Dict, Any, List
 from sqlalchemy.orm import Session
 from app.ai.tools import execute_tool, ANTHROPIC_TOOLS
 
-SYSTEM_PROMPT = """You are SETU (सेतु), an AI assistant helping Indian citizens discover and access government schemes and services.
+SYSTEM_PROMPT = """You are SETU (सेतु), an AI-powered government service navigator helping Indian citizens discover and access government schemes and services.
 
-Rules:
-- Always be helpful, empathetic, and clear.
-- Do NOT use emojis anywhere in your responses.
-- Respond in the SAME language the user writes in (Hindi for Hindi, Kannada for Kannada, English for English, etc.).
-- Ask only ONE clarifying question at a time if details are missing.
-- When you have enough info, call the appropriate tool.
-- Always end with a clear next step for the user.
-- Never make up scheme details; only use tool results.
-- Format responses clearly with line breaks and bullet points.
+IMPORTANT RULES:
+1. Act as a citizen service guide, NOT a database search engine.
+2. Never immediately display more than 3 relevant recommendations in your response.
+3. First understand the user's intent. Provide immediate value in the first response (e.g. "Congratulations! You may be eligible for education-related government support.")
+4. Avoid asking long questionnaires or conducting long eligibility interviews upfront.
+5. Only ask additional questions when the user explicitly chooses to check eligibility, application process, or personalized recommendations.
+6. Responses must be conversational, empathetic, and action-oriented.
+7. Use emojis to make the text friendly and structured (e.g., 🎓, 💰, 🏠, 🌾).
+8. Always end with clear, actionable options for the user (e.g., [Check Eligibility], [Required Documents], [Application Process]).
+9. Avoid technical government language; keep it simple and easy to understand.
+10. Respond in the SAME language the user writes in (Hindi for Hindi, Kannada for Kannada, English for English, etc.).
+11. Never make up scheme details; only use tool results. Format clearly with line breaks.
 """
 
 async def stream_ai_response(
@@ -193,6 +196,26 @@ async def stream_ai_response(
     if any(w in msg_lower for w in ["solar", "electricity", "energy", "ಸೌರ", "बिजली", "सौर"]):
         categories.append("environment")
 
+    # If no category or scheme keywords are detected, handle as an irrelevant/general query
+    if not categories and not any(w in msg_lower for w in ["scheme", "yojana", "help", "support", "apply", "benefit", "government", "government scheme"]):
+        if is_kannada:
+            text = "ನಮಸ್ಕಾರ! ನಾನು ನಿಮ್ಮ ಸರ್ಕಾರಿ ಸೇವಾ ಸಹಾಯಕಿ. ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು, ವಿದ್ಯಾರ್ಥಿವೇತನಗಳು ಮತ್ತು ಸವಲತ್ತುಗಳನ್ನು ಹುಡುಕಲು ನಾನು ಸಹಾಯ ಮಾಡಬಲ್ಲೆ. ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?"
+            pills = ["ವಿದ್ಯಾರ್ಥಿವೇತನ ಹುಡುಕಿ", "ರೈತರ ಯೋಜನೆಗಳು", "ಮಹಿಳಾ ಸವಲತ್ತುಗಳು"]
+        elif is_hindi:
+            text = "नमस्ते! मैं आपकी सरकारी सेवा सहायक हूँ। मैं आपको सरकारी योजनाओं, छात्रवृत्तियों और लाभों को खोजने में मदद कर सकती हूँ। मैं आज आपकी क्या सहायता कर सकती हूँ?"
+            pills = ["छात्रवृत्ति खोजें", "कृषि योजनाएं", "महिलाओं के लिए लाभ"]
+        else:
+            text = "Hello! I am SETU, your government service assistant. I can help you discover government schemes, scholarships, and benefits. How can I assist you today?"
+            pills = ["Find Scholarships", "Agriculture Schemes", "Women's Benefits"]
+
+        for chunk in text.split(" "):
+            yield f"data: {json.dumps({'type': 'text', 'content': chunk + ' '})}\n\n"
+            await asyncio.sleep(0.015)
+
+        yield f"data: {json.dumps({'type': 'suggestions', 'pills': pills})}\n\n"
+        yield f"data: {json.dumps({'type': 'done'})}\n\n"
+        return
+
     tool_input = {
         "category": categories if categories else None,
         "keywords": message.split(),
@@ -217,20 +240,20 @@ async def stream_ai_response(
     is_scholarship_query = "education" in categories or any(w in msg_lower for w in ["scholarship", "college", "student", "study", "ವಿದ್ಯಾರ್ಥಿವೇತನ", "छात्रवृत्ति"])
     
     if is_kannada:
-        offer_word = "ವಿದ್ಯಾರ್ಥಿವೇತನ ಆಫರ್‌ಗಳು (Scholarship Offers)" if is_scholarship_query else "ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು"
-        scheme_bullets = "\n".join([f"{i+1}. {s['name']}\n   - ಸಹಾಯಧನ ಮೊತ್ತ (Benefit Offer): {s.get('benefit_amount', 'ಲಭ್ಯವಿದೆ')}\n   - ಇಲಾಖೆ: {s.get('ministry', '')}" for i, s in enumerate(schemes_found)])
-        text = f"ನಿಮ್ಮ ಪ್ರಶ್ನೆಗೆ ಸೂಕ್ತವಾದ ಒಟ್ಟು {len(schemes_found)} {offer_word} ಕಂಡುಹಿಡಿಯಲಾಗಿದೆ:\n\n{scheme_bullets}\n\nಬಲಭಾಗದಲ್ಲಿರುವ ಫಲಕದಲ್ಲಿ ಎಲ್ಲಾ ಅಧಿಕೃತ ಅರ್ಜಿ ಲಿಂಕ್‌ಗಳೊಂದಿಗೆ ವಿವರವಾದ ಕಾರ್ಡ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗಿದೆ. ನೀವು ಯಾವುದಾದರೂ ಯೋಜನೆಯ ಅರ್ಹತೆಯನ್ನು ಪರಿಶೀಲಿಸಲು ಬಯಸುವಿರಾ?"
+        offer_word = "ವಿದ್ಯಾರ್ಥಿವೇತನ ಆಫರ್‌ಗಳು" if is_scholarship_query else "ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು"
+        scheme_bullets = "\n".join([f"• {s['name']}" for s in schemes_found[:3]])
+        text = f"ನಿಮ್ಮ ಪ್ರಶ್ನೆಗೆ ಸಂಬಂಧಿಸಿದಂತೆ ಕೆಲವು ಪ್ರಮುಖ {offer_word} ಇಲ್ಲಿವೆ:\n\n{scheme_bullets}\n\nನೀವು ಏನು ಮಾಡಲು ಬಯಸುತ್ತೀರಿ?\n\n[ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಿ]\n[ಅಗತ್ಯ ದಾಖಲೆಗಳು]\n[ಅರ್ಜಿ ಪ್ರಕ್ರಿಯೆ]"
         pills = ["ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಿ", "ದಾಖಲೆಗಳ ವಿವರ", "ಅರ್ಜಿ ಸಲ್ಲಿಸುವುದು ಹೇಗೆ?", "ಇನ್ನಷ್ಟು ಆಫರ್‌ಗಳು"]
     elif is_hindi:
-        offer_word = "छात्रवृत्ति योजनाएं (Scholarship Offers)" if is_scholarship_query else "सरकारी योजनाएं"
-        scheme_bullets = "\n".join([f"{i+1}. {s['name']}\n   - वित्तीय सहायता राशि (Offer Amount): {s.get('benefit_amount', 'उपलब्ध')}\n   - मंत्रालय: {s.get('ministry', '')}" for i, s in enumerate(schemes_found)])
-        text = f"आपकी मांग के अनुसार कुल {len(schemes_found)} {offer_word} उपलब्ध हैं:\n\n{scheme_bullets}\n\nदाईं ओर दिए गए पैनल में सभी योजना कार्ड उनके आधिकारिक पोर्टल लिंक के साथ उपलब्ध हैं। क्या आप किसी विशेष योजना की पात्रता या आवश्यक दस्तावेज जानना चाहते हैं?"
+        offer_word = "छात्रवृत्ति योजनाएं" if is_scholarship_query else "सरकारी योजनाएं"
+        scheme_bullets = "\n".join([f"• {s['name']}" for s in schemes_found[:3]])
+        text = f"आपकी मांग के अनुसार यहाँ कुछ प्रमुख {offer_word} हैं:\n\n{scheme_bullets}\n\nआप क्या करना चाहेंगे?\n\n[पात्रता जांचें]\n[आवश्यक दस्तावेज]\n[आवेदन प्रक्रिया]"
         pills = ["मेरी पात्रता जांचें", "आवश्यक दस्तावेज", "आवेदन कैसे करें?", "और योजनाएं देखें"]
     else:
-        offer_word = "Scholarship Offers" if is_scholarship_query else "Government Scheme Offers"
-        scheme_bullets = "\n".join([f"{i+1}. {s['name']}\n   • Offer Amount: {s.get('benefit_amount', 'Standard DBT Assistance')}\n   • Ministry: {s.get('ministry', '')}" for i, s in enumerate(schemes_found)])
-        text = f"I found a total of {len(schemes_found)} active {offer_word} matching your inquiry:\n\n{scheme_bullets}\n\nI have loaded the complete scheme cards with direct official government application links in the right panel. Would you like to check your eligibility or see the document checklist for any of these?"
-        pills = ["Check my eligibility", "What documents do I need?", "How do I apply?", "Check another category"]
+        offer_word = "Scholarship Offers" if is_scholarship_query else "Government Support Programs"
+        scheme_bullets = "\n".join([f"• {s['name']}" for s in schemes_found[:3]])
+        text = f"Here are the top most relevant {offer_word} for you:\n\n{scheme_bullets}\n\nWhat would you like to do?\n\n[Check Eligibility]\n[Required Documents]\n[Application Process]"
+        pills = ["Check my eligibility", "What documents do I need?", "How do I apply?", "Find more schemes"]
 
     for chunk in text.split(" "):
         yield f"data: {json.dumps({'type': 'text', 'content': chunk + ' '})}\n\n"

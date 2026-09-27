@@ -8,6 +8,8 @@ from app.seed_data import init_db_data
 from app.routes import schemes, wizard, chat, digilocker, csc, grievance
 
 # Configure logging
+
+# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"

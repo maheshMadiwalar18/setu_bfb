@@ -66,11 +66,11 @@ export const ChatPage: React.FC = () => {
       content: t('chat.welcomeTitle', 'Namaste! I am SETU, your official government services guide.') + '\n\n' + t('chat.welcomeBody', 'I can help you find schemes you are eligible for, understand required documents, and check payment status.'),
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       suggestions: [
-        "Find schemes for me",
-        "I need a scholarship for college",
-        "Did I get my Gruha Lakshmi money this month?",
-        "Check my PM Kisan payment",
-        "What documents do I need for PM Kisan?"
+        "Find schemes for farmers",
+        "Scholarship assistance",
+        "Income certificate help",
+        "PM-Kisan support",
+        "Pension schemes"
       ]
     };
     setMessages([welcomeMsg]);
@@ -232,10 +232,11 @@ export const ChatPage: React.FC = () => {
       content: t('chat.welcomeTitle', 'Namaste! I am SETU, your official government services guide.') + '\n\n' + t('chat.welcomeBody', 'How can I assist you today?'),
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       suggestions: [
-        "Find schemes for me",
-        "I need a scholarship for college",
-        "Did I get my Gruha Lakshmi money this month?",
-        "Check my PM Kisan payment"
+        "Find schemes for farmers",
+        "Scholarship assistance",
+        "Income certificate help",
+        "PM-Kisan support",
+        "Pension schemes"
       ]
     };
     setMessages([welcomeMsg]);

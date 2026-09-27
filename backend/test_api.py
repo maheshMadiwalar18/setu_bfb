@@ -122,7 +122,30 @@ def test_all_flows():
             assert len(events) > 0
             print("Sample SSE line:", events[0])
 
+        print("\n--- 9. Testing Web Scraper & AI Feature Extractor API ---")
+        r = client.post("/api/analyzer/extract", json={"url": "http://localhost:5173"})
+        assert r.status_code == 200
+        ext_data = r.json()
+        print("Feature Extraction Output Title:", ext_data['overview']['title'])
+        print(f"Total features extracted: {len(ext_data['features'])}")
+        assert len(ext_data['features']) >= 5
+        assert "pricing_information" in ext_data
+        assert "services" in ext_data
+        assert "integrations" in ext_data
+        assert "faqs" in ext_data
+        assert "security_features" in ext_data
+        assert "ai_features" in ext_data
+
+        print("\n--- 10. Testing Website Comparison Engine API ---")
+        r = client.post("/api/analyzer/compare", json={"urls": ["http://localhost:5173", "https://myscheme.gov.in"]})
+        assert r.status_code == 200
+        comp_data = r.json()
+        print(f"Comparison Matrix ready for {len(comp_data['compared_sites'])} sites.")
+        assert len(comp_data['compared_sites']) == 2
+        assert len(comp_data['comparison_matrix']) > 0
+
         print("\n--- ALL BACKEND TESTS PASSED SUCCESSFULLY! ---")
 
 if __name__ == "__main__":
     test_all_flows()
+

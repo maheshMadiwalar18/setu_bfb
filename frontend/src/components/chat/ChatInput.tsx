@@ -31,11 +31,11 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   };
 
   const defaultSuggestions = [
-    "Find scholarship for college",
-    "Show scholarship offers & amounts",
-    "Did I get my Gruha Lakshmi money?",
-    "What documents do I need for PM Kisan?",
-    "Check Ayushman Bharat cover"
+    "Find schemes for farmers",
+    "Scholarship assistance",
+    "Income certificate help",
+    "PM-Kisan support",
+    "Pension schemes"
   ];
 
   const activePills = suggestions.length > 0 ? suggestions : defaultSuggestions;
